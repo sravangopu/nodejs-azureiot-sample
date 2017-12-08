@@ -6,8 +6,7 @@ var fs = require('fs'),
     parseString = require('xml2js').parseString,
 	xml2js = require('xml2js');
 
-//var connectionString = 'HostName=wagesiot.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=nM8IT9+AeAnTkWj023OR7mz7mWemnJkBZJLOg53LHlc=';
-var connectionString = 'HostName=eatoniot.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=/qzKmIGP5s0CGPSV65Ns87mfONnRreQW/9VxpJu9Qpg=';
+var connectionString = '{iothub connection string}';
 
 var registry = iothub.Registry.fromConnectionString(connectionString);
 
@@ -32,7 +31,7 @@ fs.readFile('DeviceConfiguration.xml', 'utf-8', function (err, data){
 				  registry.get(device.deviceId, printDeviceInfo);
 			  }
 			  if (deviceInfo) {
-				  console.log('Device created successfully');
+				  console.log('Device created successfully!!');
 				  writeInfoToXml()					
 				  printDeviceInfo(err, deviceInfo, res)
 			  }
@@ -55,7 +54,7 @@ fs.readFile('DeviceConfiguration.xml', 'utf-8', function (err, data){
 			}			
 		}
 		else
-			console.log('Device already exists');
+			console.log('Oops device with the same Device Id exists already!!');
     });
 });    
 
