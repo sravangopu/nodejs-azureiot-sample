@@ -8,3 +8,5 @@ RUN npm install
 ADD . .
 
 CMD [ "node", "createdevice.js" ]
+
+EXPOSE 8080
